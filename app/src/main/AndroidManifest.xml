@@ -20,17 +20,19 @@
         android:theme="@style/Theme.ReadFromNfc"
         tools:targetApi="31">
         <activity
+            android:name=".NfcReaderActivity"
+            android:exported="false" />
+        <activity
             android:name=".NfcScannerActivity"
             android:exported="false"
             android:launchMode="singleTask">
-
-            <meta-data android:name="android.nfc.action.TECH_DISCOVERED"
+            <meta-data
+                android:name="android.nfc.action.TECH_DISCOVERED"
                 android:resource="@xml/techlist" />
 
             <intent-filter>
-                <action android:name="android.nfc.action.TECH_DISCOVERED"/>
+                <action android:name="android.nfc.action.TECH_DISCOVERED" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".MainActivity"

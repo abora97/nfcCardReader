@@ -21,6 +21,9 @@ class MainActivity : AppCompatActivity() {
         btnNfcScanner.setOnClickListener {
         startActivity(Intent(this,NfcScannerActivity::class.java))
         }
+        btnNfcReader.setOnClickListener {
+        startActivity(Intent(this,NfcReaderActivity::class.java))
+        }
     }
 
     override fun onResume() {
