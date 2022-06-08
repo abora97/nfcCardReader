@@ -16,6 +16,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this)
         Toast.makeText(this,NFCUtil.retrieveNFCMessage(this.intent),Toast.LENGTH_LONG).show()
+
+
+        btnNfcScanner.setOnClickListener {
+        startActivity(Intent(this,NfcScannerActivity::class.java))
+        }
     }
 
     override fun onResume() {

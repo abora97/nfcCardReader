@@ -9,7 +9,6 @@
         android:name="android.hardware.nfc"
         android:required="true" />
 
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -21,6 +20,19 @@
         android:theme="@style/Theme.ReadFromNfc"
         tools:targetApi="31">
         <activity
+            android:name=".NfcScannerActivity"
+            android:exported="false"
+            android:launchMode="singleTask">
+
+            <meta-data android:name="android.nfc.action.TECH_DISCOVERED"
+                android:resource="@xml/techlist" />
+
+            <intent-filter>
+                <action android:name="android.nfc.action.TECH_DISCOVERED"/>
+            </intent-filter>
+
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -28,7 +40,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
 
@@ -39,7 +50,6 @@
                     android:pathPrefix="/abora.com:nfcapp"
                     android:scheme="vnd.android.nfc" />
             </intent-filter>
-
         </activity>
     </application>
 
